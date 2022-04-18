@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import { getMonth } from "./util";
 function App() {
+  console.log(getMonth(3))
   return (
     <div className="App">
       <header className="App-header">
