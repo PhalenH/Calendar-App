@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
 
 // default value of current month (numbered 0-11)
-export function getMonth(month = dayjs().month) {
+export function getMonth(month = dayjs().month()) {
+  month = Math.floor(month);
   const year = dayjs().year();
 
   // creates new dayjs object that represents the first day of the month, -1 for last day or previous month
