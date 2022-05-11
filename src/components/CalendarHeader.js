@@ -12,7 +12,11 @@ export default function CalendarHeader() {
     setMonthIndex(monthIndex + 1);
   }
   function handleCurrentMonth() {
-    setMonthIndex(dayjs().month());
+    setMonthIndex(
+      monthIndex === dayjs().month()
+        ? monthIndex + Math.random()
+        : dayjs().month()
+    );
   }
 
   return (
