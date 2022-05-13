@@ -6,12 +6,13 @@ export default function ContextWrapper(props) {
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [miniCalendarMonth, setMiniCalendarMonth] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
+  const [showEventModal, setShowEventModal] = useState(false);
 
   useEffect(() => {
-    if(miniCalendarMonth !== null){
-      setMonthIndex(miniCalendarMonth)
+    if (miniCalendarMonth !== null) {
+      setMonthIndex(miniCalendarMonth);
     }
-  }, [miniCalendarMonth])
+  }, [miniCalendarMonth]);
 
   return (
     <GlobalContext.Provider
@@ -21,7 +22,9 @@ export default function ContextWrapper(props) {
         miniCalendarMonth,
         setMiniCalendarMonth,
         selectedDay,
-        setSelectedDay
+        setSelectedDay,
+        showEventModal,
+        setShowEventModal,
       }}
     >
       {props.children}
