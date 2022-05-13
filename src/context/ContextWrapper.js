@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 export default function ContextWrapper(props) {
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [miniCalendarMonth, setMiniCalendarMonth] = useState(null);
-  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
 
   useEffect(() => {
