@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 
+const labelClasses = ["indigo", "gray", "blue", "green", "red", "purple"];
+
 export default function EventModal() {
   const { setShowEventModal, selectedDay } = useContext(GlobalContext);
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [selectedLabel, setSelectedLabel] = useState(labelClasses[0]);
 
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
@@ -28,8 +32,40 @@ export default function EventModal() {
               className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <span className="material-icons-outlined text-gray-400">schedule</span>
+            <span className="material-icons-outlined text-gray-400">
+              schedule
+            </span>
             <p>{selectedDay.format("dddd, MMMM DD")} </p>
+            <span className="material-icons-outlined text-gray-400">
+              segment
+            </span>
+            <input
+              type="text"
+              name="description"
+              placeholder="Add a description"
+              value={description}
+              required
+              className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <span className="material-icons-outlined text-gray-400">
+              bookmark_border
+            </span>
+            <div className="flex gap-x-2">
+              {labelClasses.map((labelColors, i) => (
+                <span
+                  key={i}
+                  onClick={() => setSelectedLabel(labelColors)}
+                  className={`bg-${labelColors}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
+                >
+                  {selectedLabel === labelColors && (
+                    <span className="material-icons-outlined text-white text-sm">
+                      check
+                    </span>
+                  )}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </form>
