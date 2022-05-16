@@ -32,7 +32,7 @@ export default function CalendarHeader() {
       <button onClick={handlePrevMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray600 mx-2">
           chevron_left
-        </span> 
+        </span>
       </button>
       <button onClick={handleNextMonth}>
         <span className="material-icons-outlined cursor-pointer text-gray600 mx-2">
