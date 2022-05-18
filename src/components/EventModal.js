@@ -16,10 +16,10 @@ export default function EventModal() {
       title,
       description,
       label: selectedLabel,
-      day: selectedDay.value(),
+      day: selectedDay.valueOf(),
       id: Date.now(),
     };
-    dispatchCallEvent({ type: "push", calendarEvent });
+    dispatchCallEvent({ type: "push", payload: calendarEvent });
     setShowEventModal(false);
   }
 
